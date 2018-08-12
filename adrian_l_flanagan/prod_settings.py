@@ -20,11 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-DEFAULT_SECRET_KEY = 'n85(tdv64&xx=$4s_e6^&$-icomxm75k(%443%55&-lfq_y=+k'
-SECRET_KEY = os.environ.get('SECRET_KEY', DEFAULT_SECRET_KEY)
+SECRET_KEY = os.environ['SECRET_KEY']
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -58,7 +56,7 @@ TEMPLATES = [
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
-            'debug': True,
+            'debug': False,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -79,7 +77,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'adrian_l_flanagan',
-        'PASSWORD': 'dumbpassword',   # dev only, of course
+        'PASSWORD': os.environ['DB_PASSWD'],
     }
 }
 
