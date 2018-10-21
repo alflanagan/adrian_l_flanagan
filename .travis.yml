@@ -1,0 +1,9 @@
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install pipenv
+  - pipenv install
+# command to run tests
+script:
+  - pipenv shell
+  - python ./manage.py test
