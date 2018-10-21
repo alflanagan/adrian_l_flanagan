@@ -1,8 +1,9 @@
 language: python
+python:
   - "3.6"
 # command to install dependencies
 install:
-  - setup.sh
+  - ./setup.sh
 # command to run tests
 script:
-  - tests.sh
+  - ./tests.sh
