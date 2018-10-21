@@ -1,9 +1,15 @@
 language: python
 python:
   - "3.6"
+env:
+  - DB_PASSWD=travis_test_password
+before-install:
+  - psql -f initdb.sql -U postgres
 # command to install dependencies
 install:
   - ./setup.sh
+services:
+  - postgresql
 # command to run tests
 script:
   - ./tests.sh
