@@ -1,0 +1,25 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+django = "*"
+dj-static = "*"
+"psycopg2" = "*"
+django-bootstrap = "*"
+
+
+[dev-packages]
+
+coverage = "*"
+sphinx = "*"
+jedi = "*"
+
+
+[requires]
+
+python_version = "3.6"

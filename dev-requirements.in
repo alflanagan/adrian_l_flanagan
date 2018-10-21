@@ -1,7 +1,0 @@
-# these are packages that are not required at runtime, but are fairly essential to the development process
-# report on test coverage, works well with django tests
-coverage
-# the documentation tool we use
-Sphinx
-# maintains/updates these requirement files
-pip-tools
