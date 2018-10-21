@@ -3,6 +3,7 @@ python:
   - "3.6"
 env:
   - DB_PASSWD=travis_test_password
+  - SECRET_KEY=n85(tdv64&xx=$4s_e6^&$-icomxm75k(%443%55&-lfq_y=+k
 before-install:
   - psql -f initdb.sql -U postgres
 services:
@@ -12,4 +13,4 @@ install:
   - ./setup.sh
 # command to run tests
 script:
-  - python ./manage.py tests
+  - pipenv run python ./manage.py test

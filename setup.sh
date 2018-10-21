@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-ln -s adrian_l_flanagan/prod_settings.py settings.py
-pip install pipenv
-pipenv install
-python manage.py migrate
+cd adrian_l_flanagan || exit 1
+ln -s prod_settings.py settings.py
+cd .. || exit 1
+python3 -m pip install pipenv
+pipenv install --three
+pipenv run python manage.py migrate
