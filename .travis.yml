@@ -5,9 +5,11 @@ env:
   - DB_PASSWD=travis_test_password
 before-install:
   - psql -f initdb.sql -U postgres
-# command to install dependencies
 services:
   - postgresql
+# command to install dependencies
+install:
+  - ./setup.sh
 # command to run tests
 script:
   - python ./manage.py tests
