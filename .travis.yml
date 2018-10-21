@@ -6,10 +6,8 @@ env:
 before-install:
   - psql -f initdb.sql -U postgres
 # command to install dependencies
-install:
-  - ./setup.sh
 services:
   - postgresql
 # command to run tests
 script:
-  - ./tests.sh
+  - python ./manage.py tests
