@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
 """
 
 import os
+import warnings
+
+warnings.simplefilter("ignore")
 
 from django.core.wsgi import get_wsgi_application
 

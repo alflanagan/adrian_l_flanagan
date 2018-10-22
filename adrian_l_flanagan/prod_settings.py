@@ -20,11 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+with open('/etc/secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
+
+with open('/etc/db_passwd.txt') as f:
+    DB_PASSWD = f.read().strip()
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['alloydflanagan.com']
 
 
 # Application definition
@@ -37,8 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about_me',
-    'validator',
-    'website'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'adrian_l_flanagan',
         'USER': 'adrian_l_flanagan',
-        'PASSWORD': os.environ['DB_PASSWD'],
+        'PASSWORD': DB_PASSWD,
     }
 }
 
@@ -123,6 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'adrian_l_flanagan/static/')]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'adrian_l_flanagan', 'static')]
