@@ -3,3 +3,4 @@ __pycache__
 adrian_l_flanagan/settings.py
 # WingIDE personal prefs
 *.wpu
+static

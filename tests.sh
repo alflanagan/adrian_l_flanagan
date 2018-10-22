@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-pipenv shell
-python ./manage.py test
+pipenv run python ./manage.py test
