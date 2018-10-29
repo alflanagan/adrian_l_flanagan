@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about_me',
-    'validator',
-    'website',
+    'navigation',
+    'software',
+    'professional',
+    'maker',
 ]
 
 MIDDLEWARE = [
