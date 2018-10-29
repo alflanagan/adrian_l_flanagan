@@ -19,12 +19,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-with open('/etc/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+# for Travis we get values from environment
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
+DB_PASSWD = os.environ.get('DB_PASSWD', '')
 
-with open('/etc/db_passwd.txt') as f:
-    DB_PASSWD = f.read().strip()
+# SECURITY WARNING: keep the secret key used in production secret!
+if os.path.exists('/etc/secret_key.txt'):
+    with open('/etc/secret_key.txt') as f:
+        SECRET_KEY = f.read().strip()
+
+if os.path.exists('/etc/db_passwd.txt'):
+    with open('/etc/db_passwd.txt') as f:
+        DB_PASSWD = f.read().strip()
 
 DEBUG = False
 
@@ -130,4 +136,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'adrian_l_flanagan', 'static') ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'adrian_l_flanagan', 'static')]
