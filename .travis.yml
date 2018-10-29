@@ -5,8 +5,6 @@ env:
   - DB_PASSWD=travis_test_password
     SECRET_KEY='n85(tdv64&xx=$4s_e6^&$-icomxm75k(%443%55&-lfq_y=+k'
     PIPENV_VERBOSITY=-1
-before-install:
-  - psql -f initdb.sql -U postgres
 services:
   - postgresql
 # command to install dependencies
