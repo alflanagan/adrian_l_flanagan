@@ -3,7 +3,7 @@
 cd adrian_l_flanagan || exit 1
 ln -s prod_settings.py settings.py
 cd .. || exit 1
-psql -f initdb.sql -U postgres
+psql -U postgres -c "CREATE USER adrian_l_flanagan PASSWORD 'travis_test_password' WITH CREATEDB;"
 python3 -m pip install pipenv
 pipenv install --three
 pipenv run python manage.py migrate --noinput
