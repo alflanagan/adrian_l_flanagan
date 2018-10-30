@@ -60,7 +60,7 @@ ROOT_URLCONF = 'adrian_l_flanagan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['adrian_l_flanagan/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug': True,
