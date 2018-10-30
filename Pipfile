@@ -1,26 +1,20 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 django = "*"
 "psycopg2" = "*"
 django-bootstrap4 = "*"
 pipenv = "*"
-
+requests = "*"
 
 [dev-packages]
-
 coverage = "*"
 sphinx = "*"
 jedi = "*"
 pylint = "*"
 
-
 [requires]
-
 python_version = "3.6"

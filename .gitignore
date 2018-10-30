@@ -4,3 +4,4 @@ adrian_l_flanagan/settings.py
 # WingIDE personal prefs
 *.wpu
 /static
+github_token.txt
