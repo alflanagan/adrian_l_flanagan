@@ -33,13 +33,13 @@ class Technology(models.Model):
 
 class SoftwareProject(models.Model):
     """A public software project."""
-
     title = models.CharField(max_length=50,
                              help_text='Common name of the software project.', primary_key=True)
     github_repo = models.CharField(max_length=50,
-                                   help_text='repo name in google (between "alflanagn/" '
+                                   help_text='repo name in github (between "owner/" '
                                    'and ".git" in URL)',
                                    blank=True)
+    # for github projects, much of this model is basically cached github data :)
     sync_github = models.BooleanField(default=True,
                                       help_text="Should this repo be automatically synchronized "
                                       "with Github?")
@@ -48,6 +48,18 @@ class SoftwareProject(models.Model):
     starred = models.BooleanField(default=False, help_text='Is the repo starred on github?')
     blurb = models.TextField(help_text='Short description of the project, about a paragraph.',
                              blank=True)
+    is_fork = models.BooleanField(help_text='Is the repo a fork of a parent repo?')
+    parent = models.CharField(max_length=250, blank=True,
+                              help_text='Name of the parent repo, if any')
+    fork_count = models.IntegerField(default=0, help_text='Count of forks of this repo')
+    last_update = models.DateTimeField(null=True, help_text='Date/time of last push')
+    license = models.CharField(max_length=50, help_text='The software license for the project')
+    issue_count = models.IntegerField(default=0, help_text='Count of open github issues')
+    stargazers = models.IntegerField(
+        default=0, help_text='Count of users who starred this project')
+    watchers = models.IntegerField(default=0, help_text='Count of users watching this project')
+    primary_language = models.ForeignKey(Technology, models.PROTECT, help_text='Primary language',
+                                         null=True, blank=True)
     categories = models.ManyToManyField('Category')
     def __str__(self):
         return "Project: {}".format(self.title)
