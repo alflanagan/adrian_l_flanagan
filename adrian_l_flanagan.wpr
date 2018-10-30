@@ -28,9 +28,10 @@ proj.directory-list = [{'dirloc': loc('.'),
                         'include_hidden': False,
                         'recursive': True,
                         'watch_for_changes': True}]
+proj.file-list = [loc('.travis.yml')]
 proj.file-type = 'shared'
 proj.launch-config = {loc('manage.py'): ('custom',
-        ('',
+        (u'',
          'launch-L5KrZBaCIrPxmzqn'))}
 proj.main-file = loc('manage.py')
 testing.test-framework = {loc('manage.py'): ':internal djangotest'}
