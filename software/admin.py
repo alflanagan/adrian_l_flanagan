@@ -1,6 +1,6 @@
 # pylint: disable=missing-docstring
 from django.contrib import admin
-from software.models import SoftwareProject, Category, TechUsed, SoftwareTechUsed
+from software.models import SoftwareProject, Category, Technology, SoftwareTechUsed
 
 @admin.register(SoftwareProject)
 class SoftwareProjectAdmin(admin.ModelAdmin):
@@ -10,8 +10,8 @@ class SoftwareProjectAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(TechUsed)
-class TechUsedAdmin(admin.ModelAdmin):
+@admin.register(Technology)
+class TechnologyAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(SoftwareTechUsed)
