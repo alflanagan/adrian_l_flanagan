@@ -1,12 +1,21 @@
+---
 language: python
+sudo: required
 python:
   - "3.6"
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+      - postgresql-10
+      - postgresql-client-10
 env:
-  - DB_PASSWD=travis_test_password
-    SECRET_KEY='n85(tdv64&xx=$4s_e6^&$-icomxm75k(%443%55&-lfq_y=+k'
-    PIPENV_VERBOSITY=-1
   global:
     - PGPORT=5433
+  matrix:
+    - DB_PASSWD=travis_test_password
+      SECRET_KEY='n85(tdv64&xx=$4s_e6^&$-icomxm75k(%443%55&-lfq_y=+k'
+      PIPENV_VERBOSITY=-1
 services:
   - postgresql
 # command to install dependencies
@@ -15,9 +24,3 @@ install:
 # command to run tests
 script:
   - pipenv run python ./manage.py test
-addons:
-  postgresql: "10"
-  apt:
-    packages:
-      - postgresql-10
-      - postgresql-client-10
