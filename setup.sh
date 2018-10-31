@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # clone auth config (might need to fix source path for another version)
+sudo ls -l /etc/postgresql/9.4/main/pg_hba.conf
 sudo cp /etc/postgresql/9.4/main/pg_hba.conf /etc/postgresql/10/main/pg_hba.conf || exit 1
 
 cd adrian_l_flanagan || exit 1
