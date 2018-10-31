@@ -94,6 +94,7 @@ DATABASES = {
         'NAME': 'adrian_l_flanagan',
         'USER': 'adrian_l_flanagan',
         'PASSWORD': DB_PASSWD,
+        'PORT': os.environ.get('PGPORT', '')
     }
 }
 
