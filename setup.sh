@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
+PG9CONFIG=/etc/postgresql/9.6/main/pg_hba.conf
+PG10CONFIG=/etc/postgresql/10/main/pg_hba.conf
 
 # clone auth config
-sudo cp /etc/postgresql/9.6/main/pg_hba.conf /etc/postgresql/10/main/pg_hba.conf || exit 1
+sudo cp ${PG9CONFIG} ${PG10CONFIG} || exit 1
+sudo cat ${PG10CONFIG}
 cd adrian_l_flanagan || exit 1
 ln -s prod_settings.py settings.py
 cd .. || exit 1
