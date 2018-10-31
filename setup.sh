@@ -4,7 +4,11 @@ PG10CONFIG=/etc/postgresql/10/main/pg_hba.conf
 
 # clone auth config
 sudo cp ${PG9CONFIG} ${PG10CONFIG} || exit 1
+echo 'local   all             adrian_l_flanagan                       md5' >> ${PG10CONFIG}
 sudo cat ${PG10CONFIG}
+sudo service postgresql restart 10
+whoami
+ll -d adrian_l_flanagan
 cd adrian_l_flanagan || exit 1
 ln -s prod_settings.py settings.py
 cd .. || exit 1
