@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # clone auth config (might need to fix source path for another version)
-sudo ls -l /etc/postgresql/9.4/main/pg_hba.conf
 sudo cp /etc/postgresql/9.4/main/pg_hba.conf /etc/postgresql/10/main/pg_hba.conf || exit 1
-
+# really? Why above stil not fix my problem?
+md5sum /etc/postgresql/9.4/main/pg_hba.conf /etc/postgresql/10/main/pg_hba.conf
 cd adrian_l_flanagan || exit 1
 ln -s prod_settings.py settings.py
 cd .. || exit 1
